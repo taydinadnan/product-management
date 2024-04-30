@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         VERSION = '0.0.1'
-        DOCKER_HUB_REPO = credentials('DOCKER_HUB_REPO')
+        DOCKER_HUB_REPO = 'taydinadnan/node-product-management'
     }
 
     stages {
@@ -25,11 +25,12 @@ pipeline {
         stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB_REPO', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                        sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
-                        sh "docker push ${DOCKER_HUB_REPO}:${env.VERSION}"
-                    }
+                               withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB_CRED', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                def dockerImageTag = "${DOCKER_HUB_REPO}:${env.VERSION}"
+                sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
+                sh "docker push ${dockerImageTag}"
                 }
+              }
             }
         }
     }
