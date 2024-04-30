@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        VERSION = '0.0.2'
+        VERSION = '2.0.0'
         DOCKER_HUB_REPO = 'taydinadnan/node-product-management'
     }
 
