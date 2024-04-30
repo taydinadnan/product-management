@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        VERSION = '3.0.0'
+        VERSION = '4.0.0'
         DOCKER_HUB_REPO = 'taydinadnan/node-product-management'
         KUBE_DEPLOYMENT = 'my-app'
     }
