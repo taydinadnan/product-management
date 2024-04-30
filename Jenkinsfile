@@ -4,6 +4,8 @@ pipeline {
     environment {
         VERSION = '0.0.2'
         DOCKER_HUB_REPO = 'taydinadnan/node-product-management'
+        RESOURCE_GROUP = credentials('AZURE_RESOURCE_GROUP')
+        CLUSTER_NAME = credentials('AZURE_AKS_CLUSTER_NAME')
         DEPLOYMENT_NAME = 'my-app'
         NAMESPACE = 'default' 
     }
