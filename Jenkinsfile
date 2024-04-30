@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         VERSION = '0.0.1'
-        DOCKER_HUB_REPO = 'your-docker-hub-username/node-product-management'
+        DOCKER_HUB_REPO = 'taydinadnan/node-product-management'
     }
 
     stages {
